@@ -1,0 +1,22 @@
+export const SAMPLE = `city,country,month,temperature_c,rain_mm,sunny
+Oslo,Norway,2024-01-01,-3.2,49,no
+Oslo,Norway,2024-04-01,5.8,41,yes
+Oslo,Norway,2024-07-01,17.9,81,yes
+Oslo,Norway,2024-10-01,6.1,84,no
+Rome,Italy,2024-01-01,8.4,76,no
+Rome,Italy,2024-04-01,14.9,60,yes
+Rome,Italy,2024-07-01,26.3,17,yes
+Rome,Italy,2024-10-01,18.2,94,yes
+Cairo,Egypt,2024-01-01,14.1,5,yes
+Cairo,Egypt,2024-04-01,22.6,1,yes
+Cairo,Egypt,2024-07-01,29.4,0,yes
+Cairo,Egypt,2024-10-01,24.8,1,yes
+Tokyo,Japan,2024-01-01,5.9,52,yes
+Tokyo,Japan,2024-04-01,14.7,134,yes
+Tokyo,Japan,2024-07-01,26.1,154,no
+Tokyo,Japan,2024-10-01,18.3,198,no
+Istanbul,Turkey,2024-01-01,6.2,105,no
+Istanbul,Turkey,2024-04-01,12.4,46,yes
+Istanbul,Turkey,2024-07-01,24.5,22,yes
+Istanbul,Turkey,2024-10-01,16.0,79,yes
+`
