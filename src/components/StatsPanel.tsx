@@ -2,6 +2,9 @@ import { useMemo } from 'react'
 import { columnStats, formatNumber } from '../lib/stats'
 import type { Dataset } from '../lib/types'
 
+/** Dates round-trip as full ISO strings; show the short form when there is no time part. */
+const pretty = (v: string) => v.replace('T00:00:00.000Z', '').replace('.000Z', 'Z')
+
 export function StatsPanel({ dataset }: { dataset: Dataset }) {
   const stats = useMemo(
     () => dataset.columns.map((c) => ({ column: c, s: columnStats(c, dataset.rows) })),
@@ -28,9 +31,9 @@ export function StatsPanel({ dataset }: { dataset: Dataset }) {
             {s.min !== undefined && (
               <>
                 <dt>min</dt>
-                <dd>{typeof s.min === 'number' ? formatNumber(s.min) : s.min}</dd>
+                <dd>{typeof s.min === 'number' ? formatNumber(s.min) : pretty(String(s.min))}</dd>
                 <dt>max</dt>
-                <dd>{typeof s.max === 'number' ? formatNumber(s.max) : s.max}</dd>
+                <dd>{typeof s.max === 'number' ? formatNumber(s.max) : pretty(String(s.max))}</dd>
               </>
             )}
             {s.mean !== undefined && (
@@ -48,7 +51,7 @@ export function StatsPanel({ dataset }: { dataset: Dataset }) {
                 <li key={t.value}>
                   <span className="bar" style={{ width: `${(100 * t.count) / (s.count || 1)}%` }} />
                   <span className="label" title={t.value}>
-                    {t.value}
+                    {column.type === 'date' ? pretty(t.value) : t.value}
                   </span>
                   <span className="count">{t.count.toLocaleString()}</span>
                 </li>
